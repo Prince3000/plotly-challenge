@@ -1,87 +1,79 @@
-# Leaflet Homework - Visualizing Data with Leaflet
+# Plot.ly Homework - Belly Button Biodiversity
 
-## Background
+![Bacteria by filterforge.com](Images/bacteria.jpg)
 
-![1-Logo](Images/1-Logo.png)
+In this assignment, you will build an interactive dashboard to explore the [Belly Button Biodiversity dataset](http://robdunnlab.com/projects/belly-button-biodiversity/), which catalogs the microbes that colonize human navels.
 
-Welcome to the United States Geological Survey, or USGS for short! The USGS is responsible for providing scientific data about natural hazards, the health of our ecosystems and environment; and the impacts of climate and land-use change. Their scientists develop new methods and tools to supply timely, relevant, and useful information about the Earth and its processes. As a new hire, you will be helping them out with an exciting new project!
+The dataset reveals that a small handful of microbial species (also called operational taxonomic units, or OTUs, in the study) were present in more than 70% of people, while the rest were relatively rare.
 
-The USGS is interested in building a new set of tools that will allow them visualize their earthquake data. They collect a massive amount of data from all over the world each day, but they lack a meaningful way of displaying it. Their hope is that being able to visualize their data will allow them to better educate the public and other government organizations (and hopefully secure more funding..) on issues facing our planet.
+## Step 1: Plotly
 
-### Before You Begin
+1. Use the D3 library to read in `samples.json`.
 
-1. Create a new repository for this project called `leaflet-challenge`. **Do not add this homework to an existing repository**.
+2. Create a horizontal bar chart with a dropdown menu to display the top 10 OTUs found in that individual.
 
-2. Clone the new repository to your computer.
+* Use `sample_values` as the values for the bar chart.
 
-3. Inside your local git repository, create a directory for the Leaflet challenge. Use the folder names to correspond to the challenges: **Leaflet-Step-1** and **Leaflet-Step-2**.
+* Use `otu_ids` as the labels for the bar chart.
 
-4. This homeworks utilizes both **html** and **Javascript** so be sure to add all the necessary files. These will be the main files to run for analysis.
+* Use `otu_labels` as the hovertext for the chart.
 
-5. Push the above changes to GitHub or GitLab.
+  ![bar Chart](Images/hw01.png)
 
-## Your Task
+3. Create a bubble chart that displays each sample.
 
-### Level 1: Basic Visualization
+* Use `otu_ids` for the x values.
 
-![2-BasicMap](Images/2-BasicMap.png)
+* Use `sample_values` for the y values.
 
-Your first task is to visualize an earthquake data set.
+* Use `sample_values` for the marker size.
 
-1. **Get your data set**
+* Use `otu_ids` for the marker colors.
 
-   ![3-Data](Images/3-Data.png)
+* Use `otu_labels` for the text values.
 
-   The USGS provides earthquake data in a number of different formats, updated every 5 minutes. Visit the [USGS GeoJSON Feed](http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php) page and pick a data set to visualize. When you click on a data set, for example 'All Earthquakes from the Past 7 Days', you will be given a JSON representation of that data. You will be using the URL of this JSON to pull in the data for our visualization.
+![Bubble Chart](Images/bubble_chart.png)
 
-   ![4-JSON](Images/4-JSON.png)
+4. Display the sample metadata, i.e., an individual's demographic information.
 
-2. **Import & Visualize the Data**
+5. Display each key-value pair from the metadata JSON object somewhere on the page.
 
-   Create a map using Leaflet that plots all of the earthquakes from your data set based on their longitude and latitude.
+![hw](Images/hw03.png)
 
-   * Your data markers should reflect the magnitude of the earthquake by their size and and depth of the earth quake by color. Earthquakes with higher magnitudes should appear larger and earthquakes with greater depth should appear darker in color.
+6. Update all of the plots any time that a new sample is selected.
 
-   * **HINT** the depth of the earth can be found as the third coordinate for each earthquake.
+Additionally, you are welcome to create any layout that you would like for your dashboard. An example dashboard is shown below:
 
-   * Include popups that provide additional information about the earthquake when a marker is clicked.
+![hw](Images/hw02.png)
 
-   * Create a legend that will provide context for your map data.
+## Advanced Challenge Assignment (Optional)
 
-   * Your visualization should look something like the map above.
+The following task is advanced and therefore optional.
 
-- - -
+* Adapt the Gauge Chart from <https://plot.ly/javascript/gauge-charts/> to plot the weekly washing frequency of the individual.
 
-### Level 2: More Data (Optional)
+* You will need to modify the example gauge code to account for values ranging from 0 through 9.
 
-![5-Advanced](Images/5-Advanced.png)
+* Update the chart whenever a new sample is selected.
 
-The USGS wants you to plot a second data set on your map to illustrate the relationship between tectonic plates and seismic activity. You will need to pull in a second data set and visualize it along side your original set of data. Data on tectonic plates can be found at <https://github.com/fraxen/tectonicplates>.
+![Weekly Washing Frequency Gauge](Images/gauge.png)
 
-In this step we are going to..
+## Deployment
 
-* Plot a second data set on our map.
-
-* Add a number of base maps to choose from as well as separate out our two different data sets into overlays that can be turned on and off independently.
-
-* Add layer controls to our map.
-
-- - -
-
-### Assessment
-
-Your final product will be assessed on the following metrics:
-
-* Completion of assigned tasks
-
-* Visual appearance
-
-* Professionalism
+* Deploy your app to a free static page hosting service, such as GitHub Pages. Submit the links to your deployment and your GitHub repo.
 
 * Ensure your repository has regular commits (i.e. 20+ commits) and a thorough README.md file
 
-**Good luck!**
+## Hints
 
-### Copyright
+* Use `console.log` inside of your JavaScript code to see what your data looks like at each step.
 
-Trilogy Education Services © 2019. All Rights Reserved.
+* Refer to the [Plotly.js documentation](https://plot.ly/javascript/) when building the plots.
+
+### About the Data
+
+Hulcr, J. et al.(2012) _A Jungle in There: Bacteria in Belly Buttons are Highly Diverse, but Predictable_. Retrieved from: [http://robdunnlab.com/projects/belly-button-biodiversity/results-and-data/](http://robdunnlab.com/projects/belly-button-biodiversity/results-and-data/)
+
+- - -
+
+© 2019 Trilogy Education Services
